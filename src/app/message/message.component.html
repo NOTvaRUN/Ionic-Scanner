@@ -1,0 +1,17 @@
+@if (task) {
+  <ion-item [routerLink]="'/verify/' + task.id" [detail]="false">
+    <!-- <div slot="start" [class]="!message.read ? 'dot dot-unread' : 'dot'"></div> -->
+    <ion-label class="ion-text-wrap">
+      <h2>
+        {{ task.taskId }}
+        <span class="date">
+          <ion-note>{{ task.date }}</ion-note>
+          @if (isIos()) {
+            <ion-icon aria-hidden="true" name="chevron-forward" size="small"></ion-icon>
+          }
+        </span>
+      </h2>
+      <h3><ion-icon name="home"></ion-icon> {{ task.warehouseName }}</h3>
+    </ion-label>
+  </ion-item>
+}

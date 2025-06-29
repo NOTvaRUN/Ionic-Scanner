@@ -1,0 +1,22 @@
+.card {
+    margin: 0px 14px;
+    .img {
+        background: rgb(224, 224, 224);
+        width: 100%;
+        img {
+            margin: 0 auto;
+            height: 15rem;
+        }
+    }
+    ion-card-header,  ion-card-content{
+        padding: 0px 12px;
+        margin: 4px;
+    }
+    ion-card-title {
+        font-weight: 600;
+    }
+}
+
+ion-title {
+    padding: 0px 14px;
+}

@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Pick Verify
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        TOMS
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+      @for(message of getMessages(); track $index){
+        <app-message [task]="message"></app-message>
+      }
+  </ion-list>
+</ion-content>
