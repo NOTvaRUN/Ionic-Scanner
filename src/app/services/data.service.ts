@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 export interface Message {
-  taskId: number;
+  taskId: string;
   date: string;
   id: number;
   read: boolean;
@@ -14,60 +14,60 @@ export interface Message {
 export class DataService {
   public messages: Message[] = [
     {
-      taskId: 4422342,
+      taskId: (Math.random() * 10000000000000).toFixed(),
       date: '9:32 AM',
       id: 0,
       read: false,
-      warehouseName: "Metallica"
+      warehouseName: "QWF-LK-84"
     },
     {
-      taskId: 847874874,
+      taskId: (Math.random() * 10000000000000).toFixed(),
       date: '6:12 AM',
       id: 1,
       read: false,
-      warehouseName: "Port"
+      warehouseName: "RTY-PO-21"
     },
     {
-      taskId: 62324234,
+      taskId: (Math.random() * 10000000000000).toFixed(),
       date: '4:55 AM',
       id: 2,
       read: false,
-      warehouseName: "Metallica"
+      warehouseName: "UIO-ZX-55"
     },
     {
-      taskId: 3256245,
+      taskId: (Math.random() * 10000000000000).toFixed(),
       date: 'Yesterday',
       id: 3,
       read: false,
-      warehouseName: "Metallica"
+      warehouseName: "ASD-CV-98"
     },
     {
-      taskId: 234667234,
+      taskId: (Math.random() * 10000000000000).toFixed(),
       date: 'Yesterday',
       id: 4,
       read: false,
-      warehouseName: "Metallica"
+      warehouseName: "FGH-BN-10"
     },
     {
-      taskId: 62345345,
+      taskId: (Math.random() * 10000000000000).toFixed(),
       date: 'Yesterday',
       id: 5,
       read: false,
-      warehouseName: "Metallica"
+      warehouseName: "JKL-MN-67"
     },
     {
-      taskId: 62345345,
+      taskId: (Math.random() * 10000000000000).toFixed(),
       date: 'Last Week',
       id: 6,
       read: false,
-      warehouseName: "Metallica"
+      warehouseName: "ZXC-VB-32"
     },
     {
-      taskId: 6234534,
+      taskId: (Math.random() * 10000000000000).toFixed(),
       date: 'Last Week',
       id: 7,
       read: false,
-      warehouseName: "Metallica"
+      warehouseName: "VBN-NM-76"
     }
   ];
 

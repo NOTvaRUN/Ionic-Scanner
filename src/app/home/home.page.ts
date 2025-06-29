@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { Platform, RefresherCustomEvent } from '@ionic/angular';
-import { MessageComponent } from '../message/message.component';
 
 import { DataService, Message } from '../services/data.service';
 
