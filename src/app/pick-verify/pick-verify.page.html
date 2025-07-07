@@ -4,7 +4,7 @@
       <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
     </ion-buttons>
     <ion-title>
-      Pick Verify
+      Back To Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -17,7 +17,7 @@
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">
-        Pick Verify
+        Back To Home
       </ion-title>
     </ion-toolbar>
   </ion-header>
@@ -28,132 +28,4 @@
       }
   </ion-list>
   <ion-button id="open-modal" style="visibility: hidden;" expand="block" #openModal>Open Sheet Modal</ion-button>
-
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end" style="transform: translate(-10px, -50px);">
-    <ion-fab-button >
-      <ion-icon (click)="scan()" name="scan"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 </ion-content>
-
-<ion-content class="scanner-module barcode-scanning-modal" [fullscreen]="true" [hidden]="!scanning">
-  @if (isWeb) {
-    <video #video autoplay class="video"></video>
-  }
-  <div #square class="square"></div>
-
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end" style="transform: translate(-10px, -50px);">
-    <ion-fab-button (click)="stopScan()">
-      <ion-icon name="close"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-</ion-content>
-
-<ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.75" [breakpoints]="[0, 0.25, 0.5, 0.75, 1]">
-  <ng-template>
-    <ion-content>
-      <div class="pick-verify">
-        @if(pickVerifyProcess.length === 1){
-          <ion-input label="Task ID" 
-            label-placement="floating"
-            [value]="pickVerifyProcess[0]"
-            fill="outline"
-            placeholder="Enter text">
-          </ion-input>
-
-           <ion-input label="Bin" 
-              label-placement="stacked"
-              fill="outline"
-              placeholder="Enter or Scan Bin">
-              <ion-button fill="clear" slot="end" aria-label="Show/hide" (click)="continueScan()">
-                <ion-icon name="scan-outline"></ion-icon>
-              </ion-button>
-            </ion-input>
-
-            <h3>Select Bin For this Pick Task</h3>
-            <div class="mat-elevation-z8">
-              <table class="tableau" mat-table [dataSource]="binDataSource">
-  
-                <ng-container matColumnDef="location">
-                  <th mat-header-cell *matHeaderCellDef> Location ID </th>
-                  <td mat-cell *matCellDef="let element"> {{element.location}} </td>
-                </ng-container>
-  
-                <ng-container matColumnDef="bin">
-                  <th mat-header-cell *matHeaderCellDef> Bin ID </th>
-                  <td mat-cell *matCellDef="let element"> {{element.bin}} </td>
-                </ng-container>
-  
-                <ng-container matColumnDef="quantity">
-                  <th mat-header-cell *matHeaderCellDef> Quantity </th>
-                  <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
-                </ng-container>
-  
-                <tr mat-header-row *matHeaderRowDef="binDisplayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: binDisplayedColumns;"></tr>
-              </table>
-            </div>
-        }
-        
-        @if(pickVerifyProcess.length > 1){
-          <ion-input label="Task ID" 
-            label-placement="floating"
-            [value]="pickVerifyProcess[0]"
-            fill="outline"
-            readonly>
-          </ion-input>
-
-          <ion-input label="Bin ID" 
-            label-placement="floating"
-            [value]="pickVerifyProcess[1]"
-            fill="outline"
-            readonly>
-          </ion-input>
-
-          <ion-input label="Product Code" 
-            label-placement="stacked"
-            fill="outline"
-            placeholder="Enter or Scan Product">
-            <ion-button fill="clear" slot="end" aria-label="Show/hide" (click)="continueScan()">
-              <ion-icon name="scan-outline"></ion-icon>
-            </ion-button>
-          </ion-input>
-
-          <table class="tableau" mat-table [dataSource]="productData">
-
-            <ng-container matColumnDef="productInfo">
-              <th mat-header-cell *matHeaderCellDef> Product Info </th>
-              <td mat-cell *matCellDef="let element"> 
-                <div class="product-tile">
-                  <img [src]="element.imageUrl" />
-                  <div class="product-details">
-                    <h5>{{element.productTitle}}</h5>
-                    <span>{{element.productCode}}</span>
-                  </div>
-                </div>
-              </td>
-            </ng-container>
-
-            <ng-container matColumnDef="quantity">
-              <th mat-header-cell *matHeaderCellDef> Quantity </th>
-              <td mat-cell *matCellDef="let element" style="vertical-align: top; padding: 4px 0px;text-align: center;"> {{element.quantity}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="scannedQty">
-              <th mat-header-cell *matHeaderCellDef> Scanned Qty </th>
-              <td mat-cell *matCellDef="let element" style="vertical-align: top; padding: 4px 0px;text-align: center;"> {{element.scanned ? element.quantity : 0}} </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="productDisplayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: productDisplayedColumns;" [ngClass]="row.scanned ? 'scanned' : ''"></tr>
-          </table>
-
-          @if(allScanned){
-            <ion-button color="secondary" (click)="stopScan(); presentToast('bottom')">Complete Pick</ion-button>
-          }
-        }
-      </div>
-    </ion-content>
-  </ng-template>
-</ion-modal>
-

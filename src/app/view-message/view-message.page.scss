@@ -1,50 +1,70 @@
-ion-item {
-  --inner-padding-end: 0;
+.pick-verify{
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 2rem;
+  height: 100%;
+  background-color: white;
+  h5{ 
+    margin: 0;
+    margin-top: 8px;
+    font-weight: 500;
+  }
+}
+.tableau {
+  border: 1px solid rgb(114, 114, 114);
+  border-radius: 9px;
+}
+
+.product-tile{
+  display: flex;
+  img{
+    width: 5rem;
+    aspect-ratio: 1;
+  }
+  .product-details{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    padding: 4px 0px;
+    h5{
+      margin: 0px;
+    }
+  }
+}
+
+.scanned {
+  background-color: #5EABD6;
+}
+
+.scanner {
+  height: 30%;
+  position: relative;
+}
+
+.scanner-module {
   --background: transparent;
 }
 
-ion-label {
-  margin-top: 12px;
-  margin-bottom: 12px;
+.square {
+  position: absolute;
+  height: calc(100% - 10px);
+  width: calc(100% - 10px);
+  border-radius: 1rem;
+  border: 2px solid white;
+  margin: 5px;
 }
 
-ion-item h2 {
-  font-weight: 600;
-  
-  /**
-   * With larger font scales
-   * the date/time should wrap to the next
-   * line. However, there should be
-   * space between the name and the date/time
-   * if they can appear on the same line.
-   */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-ion-item .date {
-  align-items: center;
-  display: flex;
-}
-
-ion-item ion-icon {
-  font-size: 42px;
-  margin-right: 8px;
-}
-
-ion-item ion-note {
-  font-size: 0.9375rem;
-  margin-right: 12px;
-  font-weight: normal;
-}
-
-h1 {
-  margin: 0;
-  font-weight: bold;
-  font-size: 1.4rem;
-}
-
-p {
-  line-height: 1.4;
+.scroll-hidden {
+  --overflow: hidden;
 }

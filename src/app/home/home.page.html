@@ -1,36 +1,41 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+ <ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>
-      Sample App
+      <img src="/assets/product-images/home-bg.svg" alt="">
+      <div class="header-content">
+        <div class="menu">
+          <ion-icon name="menu-outline"></ion-icon>
+
+          <ion-avatar slot="end">
+            <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg" alt="User Avatar">
+          </ion-avatar>
+        </div>
+        <div class="title-card">
+          <span>Dashboard</span>
+          <span class="small-text">Hello user, Good Day.</span>
+        </div>
+      </div>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">
-        Sample App
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-list>
-    <ion-card class="card" [routerLink]="'/verify'">
-      <div class="img">
-        <img alt="Pick Verify" src="https://cdn-icons-png.flaticon.com/512/4529/4529686.png" />
-      </div>
-      <ion-card-header>
-        <ion-card-title>Pick Verify</ion-card-title>
-      </ion-card-header>
-
+  <div class="dashboard-grid">
+    <ion-card class="dashboard-card" routerLink="/verify">
       <ion-card-content>
-        Here's a small text description for the card content. Nothing more, nothing less.
+        <img src="/assets/product-images/picking.png" alt="Pick">
+        <ion-label>Pick Verify</ion-label>
       </ion-card-content>
     </ion-card>
-  </ion-list>
+
+    <ion-card class="dashboard-card">
+      <ion-card-content>
+        <ion-icon name="apps-outline"></ion-icon>
+        <ion-label>More</ion-label>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
