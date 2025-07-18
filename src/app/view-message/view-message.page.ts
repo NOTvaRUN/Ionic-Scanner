@@ -1,7 +1,7 @@
 
-import { AfterViewInit, Component, ElementRef, inject, NgZone, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, NgZone, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController, InputCustomEvent, IonicModule, IonInput, IonModal, Platform, ToastController } from '@ionic/angular';
+import { AlertController, InputCustomEvent, IonModal, Platform, ToastController } from '@ionic/angular';
 import { DataService, Message } from '../services/data.service';
 import { Capacitor } from '@capacitor/core';
 import { BarcodeScanner, LensFacing, StartScanOptions } from '@capacitor-mlkit/barcode-scanning';
@@ -59,7 +59,6 @@ export class ViewMessagePage implements OnInit {
     BarcodeScanner.isSupported().then((result) => {
       this.isSupported = result.supported;
     });
-
   }
 
   ionViewDidEnter(){
